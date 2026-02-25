@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Places - Von Andrei Toledo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg: #1a1410;
+  --card: #2d211a;
+  --text: #f5efe6;
+  --muted: #d6c2b5;
+  --accent: #e67e22;
+}
+
+/* GLOBAL */
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #2b1f17, #1a1410 70%);
+  color: var(--text);
+}
+
+h1, h2 {
+  font-family: "Playfair Display", serif;
+}
+
+/* HEADER */
+
+header {
+  padding: 25px 60px;
+  background: rgba(26,20,16,0.95);
+}
+
+header h3 {
+  margin: 0;
+}
+
+/* WRAPPER */
+
+.wrapper {
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+/* MAP CARD */
+
+.map-card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.map-card:hover {
+  transform: translateY(-5px);
+}
+
+.map-card img {
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--card);
+  width: 90%;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  position: relative;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 22px;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+/* IMAGE GRID INSIDE MODAL */
+
+.modal-images {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.modal-images img {
+  width: 100%;
+  aspect-ratio: 1 / 1;      
+  object-fit: contain;      
+  background: #1f1713;      
+  border-radius: 18px;
+  padding: 10px;            
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  transition: 0.3s ease;
+}
+
+.modal-images img:hover {
+  transform: scale(1.02);
+}
+
+/* NAVBAR */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 70px;
+  background: rgba(26,20,16,0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+.nav nav a {
+  margin-left: 30px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav nav a:hover {
+  color: var(--accent);
+}
+</style>
+</head>
+
+<body>
+<header class="nav">
+    <div class="brand">VON TOLEDO</div>
+
+    <nav>
+      <a href="../index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="beats.html">My Beats</a>
+      <a href="movies.html">Movies</a>
+      <a href="tvshows.html">TV Shows</a>
+    </nav>
+  </header>
+
+
+<div class="wrapper">
+
+<h1>🌍 My Dream Places to Visit</h1>
+<p style="color:var(--muted); margin-bottom:50px;">
+Click the scrapbook map to explore my dream destinations.
+</p>
+
+<div class="map-card">
+
+<img src="../images/DreamMAP.jpg"
+     usemap="#image-map"
+     width="768"
+     height="576"
+     alt="Dream Map">
+
+<map name="image-map">
+    <area href="#honshu" coords="175,31,162,184,292,194,305,42" shape="poly">
+    <area href="#shinjuku" coords="21,223,150,211,164,362,34,374" shape="poly">
+    <area href="#kawasaki" coords="198,373,329,371,333,523,201,527" shape="poly">
+    <area href="#paris" coords="561,366,690,377,676,528,550,519" shape="poly">
+    <area href="#venice" coords="471,41,601,32,613,185,482,192" shape="poly">
+</map>
+
+</div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="honshu" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close-btn">✕</a>
+    <h2>🌋 Honshu Island, Japan</h2>
+    <p>I want to visit Honshu because it is home to Mount Fuji. Seeing Mt. Fuji and Lake Biwa in person has always been my dream.</p>
+    <div class="modal-images">
+      <img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2016/02/Mount-Fuji-New-1024x682.jpg">
+      <img src="https://www.the-kansai-guide.com/kansaiguide/data/article/21000/20153/20230201_163307_8169b517_w1920.jpg">
+    </div>
+  </div>
+</div>
+
+<div id="shinjuku" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close-btn">✕</a>
+    <h2>🎬 Shinjuku, Tokyo</h2>
+    <p>I want to visit the iconic stairs from the anime movie Kimi no Na wa and Shop in Don Quijote.</p>
+    <div class="modal-images">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/3e/ab/a4/donquijote-shibuya.jpg?w=1200&h=-1&s=1">
+      <img src="https://i.redd.it/onm34fii5fp31.jpg">
+    </div>
+  </div>
+</div>
+
+<div id="kawasaki" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close-btn">✕</a>
+    <h2>🎮 Kawasaki, Japan</h2>
+    <p>I want to visit PokéPark because Pokémon was part of my childhood.</p>
+    <div class="modal-images">
+      <img src="https://cdn.gaijinpot.com/app/uploads/sites/4/2025/07/pokemon-theme-park-japan-1024x738.jpg">
+      <img src="https://asianews.network/wp-content/uploads/2025/11/pokepark_eevee.jpg">
+    </div>
+  </div>
+</div>
+
+<div id="venice" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close-btn">✕</a>
+    <h2>🚤 Venice, Italy</h2>
+    <p>Venice is very aesthetic and romantic. I want to ride a gondola and explore the canals.</p>
+    <div class="modal-images">
+      <img src="https://images.winalist.com/blog/wp-content/uploads/2025/09/24094550/adobestock-92534950-1500x1000.jpeg">
+      <img src="https://media.cntraveler.com/photos/6893ab6e02d1c64a8cb1e10b/4:3/w_2664,h_1998,c_limit/080625-ESP-Venice-Biennale-Lede-GettyImages-2202883461.jpg">
+    </div>
+  </div>
+</div>
+
+<div id="paris" class="modal">
+  <div class="modal-content">
+    <a href="#" class="close-btn">✕</a>
+    <h2>🗼 Paris, France</h2>
+    <p>Paris is one of the most aesthetic cities. I want to see the Eiffel Tower in person and visit the Catacombs.</p>
+    <div class="modal-images">
+      <img src="https://www.catacombes.paris.fr/sites/default/files/styles/1920x1080/public/2018-10/cat-footer-faq.jpg?itok=_QDHeHmX">
+      <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/swox6wjsl5ndvkv5jvum.jpg">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
